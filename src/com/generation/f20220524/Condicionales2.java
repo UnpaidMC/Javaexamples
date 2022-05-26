@@ -21,56 +21,87 @@ public class Condicionales2 {
          System.out.println("PA FUERA");
         }*/
 
+        /*Scanner sc = new Scanner(System.in);
+
+        //get entrada numerica user
+        System.out.println("Ingrese su monto de venta");
+        int montoventa = sc.nextInt();
+
+        //variables comision1
+
+        int montoComision5a = 10000;
+        int montoComision4a = 9999;
+        int montoComision4b = 5001;
+        int montoComision3a = 4999;
+        int montoComision3b = 1001;
+        float factormultiplicatibo3 = 0.1f;
+        float factormultiplicatibo2 = 0.2f;
+        float factormultiplicatibo1 = 0.3f;
+
+
+        //calcular comisiones
+
+
+        float ventalTotal1;
+        float ventalTotal2;
+        float ventalTotal3;
+        float ventalTotal4;
+
+
+        if (montoventa >= montoComision5a) {
+
+            ventalTotal1 = montoventa * factormultiplicatibo1;
+            System.out.println(ventalTotal1);
+
+
+        } else if (montoventa >= montoComision4b  && montoventa <= montoComision4a) {
+
+            ventalTotal2 = montoventa * factormultiplicatibo2;
+            System.out.println(ventalTotal2);
+
+        } else if (montoventa >= montoComision3b && montoventa <= montoComision3a ) {
+
+            ventalTotal3 = montoventa * factormultiplicatibo3;
+            System.out.println(ventalTotal3);
+
+        }else{
+
+            System.out.println(montoventa);
+        }*/
+
         Scanner sc = new Scanner(System.in);
-
-        System.out.println("Ingrese su nombre y apellido");
-        String nombreapellido = sc.nextLine();
-        System.out.println("Ingrese su direccion");
-        String direccion = sc.nextLine();
-        System.out.println("Ingrese su numero de casa");
-        int numeroCasa = sc.nextInt();
-
-
         System.out.println("Ingrese su edad");
-        int edad = sc.nextInt();
+        int edadingresada = sc.nextInt();
 
-        int Mayoriaedad = 18;
+        int edadJoven = 15;
+        int edadAdulto = 60;
+        float descuento1 = 0.60f;
+        float descuento2 = 0.55f;
+        int ticket = 3500;
+        int ventaticket1 = 0;
 
-        if (edad >= Mayoriaedad) {
 
-            System.out.println("Bienvenido!");
+        if(edadingresada <= edadJoven){
 
-        } else {
-            System.out.println("PA FUERA");
+            int descuentoticket = (int) (descuento1 * ticket);
+            ventaticket1 = ticket - descuentoticket;
+
+            System.out.println("Su descuento es de 60% el total de su venta es " + ventaticket1 + ".-");
+
+        } else if (edadingresada > edadAdulto) {
+
+            int descuentoticket = (int) (descuento2 * ticket);
+            ventaticket1 = ticket - descuentoticket;
+
+            System.out.println("Su descuento es de 55 % el total de su venta es " + ventaticket1 + ".-");
+        }else{
+
+            System.out.println(ticket);
+            System.out.println("El total de su venta es " + ticket + ".-");
+
         }
-
-
-        System.out.println("\nIngrese su saldo");
-        int saldo = sc.nextInt();
-
-        int minapuesta = 10000;
-        int minsaldo = 50000;
-
-        if (saldo >= minsaldo ){
-
-            System.out.println("Apueste lo que quiera");
-
-        } else {
-            System.out.println("PA FUERA");
-        }
-
-        System.out.println("\nIngrese su apuesta, la minima apuesta hoy es de 10000");
-        int apuesta = sc.nextInt();
-
-        if (apuesta > minapuesta){
-
-            System.out.println("Disfrute su partida");
-
-        } else {
-            System.out.println("Ingrese un saldo mayor");
-        }
-
 
 
     }
 }
+
