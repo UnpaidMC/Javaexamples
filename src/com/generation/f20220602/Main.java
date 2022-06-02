@@ -59,12 +59,12 @@ public class Main {
 
             System.out.println("Esta ausente el alumno? (1)Si (0)No");
             opcion2 = sc.nextInt();
-            if(opcion2 == 0){
+            if (opcion2 == 0) {
                 alum.setAsistencia(true);
-            }else{
+            } else {
                 alum.setAsistencia(false);
             }
-            while (opcion2 > 1 || opcion2 < 0){
+            while (opcion2 > 1 || opcion2 < 0) {
 
                 System.out.println("Porfavor ingrese un 1 o 0");
                 opcion2 = sc.nextInt();
@@ -72,6 +72,7 @@ public class Main {
 
             }
 
+            //NUMEROS IDS NO SON AL AZAR PERO AL MOMENTO NO RECONOSCO MANERA DE HACER AUTOMATICAMENTE EN ORDEN
             int numeroazar =  rand.nextInt(100);
             alum.setId_alum(numeroazar);
 
