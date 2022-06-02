@@ -8,14 +8,18 @@ import com.generation.f20220602.modelos.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
+        Random rand = new Random();
         Scanner sc = new Scanner(System.in);
         int opcion = 0;
+
+
 
         //Lista
 
@@ -34,6 +38,7 @@ public class Main {
 
         do {
             Alumno alum = new Alumno();
+            int opcion2 = 0;
 
             System.out.println("Ingrese el nombre del alumno");
             String nombre = sc.nextLine();
@@ -44,7 +49,6 @@ public class Main {
             String sexo = sc.nextLine();
             alum.setSexo(sexo);
 
-
             System.out.println("Ingrese email");
             String email = sc.nextLine();
             alum.setEmail(email);
@@ -53,10 +57,23 @@ public class Main {
             String curso = sc.nextLine();
             alum.setCurso(curso);
 
-            System.out.println("Esta ausente el alumno?");
-            String ausen = sc.nextLine();
-            alum.setAsistencia(ausen);
+            System.out.println("Esta ausente el alumno? (1)Si (0)No");
+            opcion2 = sc.nextInt();
+            if(opcion2 == 0){
+                alum.setAsistencia(true);
+            }else{
+                alum.setAsistencia(false);
+            }
+            while (opcion2 > 1 || opcion2 < 0){
 
+                System.out.println("Porfavor ingrese un 1 o 0");
+                opcion2 = sc.nextInt();
+                sc.nextLine();
+
+            }
+
+            int numeroazar =  rand.nextInt(100);
+            alum.setId_alum(numeroazar);
 
             System.out.println("Desea ingresar un nuevo alumno? (1)Si (0) No");
             opcion = sc.nextInt();
@@ -74,7 +91,6 @@ public class Main {
 
 
         }while(opcion == 1);
-
 
 
         Asistencia asi = new Asistencia();

@@ -8,8 +8,8 @@ public class Asistencia {
     public void asistenciaAlumno(List<Alumno> listaAlumno) {
         for (Alumno alumno: listaAlumno) {
             System.out.println(alumno.toString());
-            if(alumno.getAsistencia().equals("Si")){
-                System.out.println("Alumno esta ausente");
+            if(alumno.getAsistencia() == false){
+                System.out.println("El alumno esta ausente");
             }
             }
 

@@ -6,7 +6,7 @@ public class Alumno extends Usuario {
 
     private Integer id_alum;
     private String curso;
-    private String asistencia;
+    private Boolean asistencia;
     private String asignatura;
 
     private List<Alumno> listaAlumnos;
@@ -15,7 +15,7 @@ public class Alumno extends Usuario {
         super();
     }
 
-    public Alumno(Integer id_alum, String curso, String asistencia, String asignatura, List<Alumno> listaAlumnos) {
+    public Alumno(Integer id_alum, String curso, Boolean asistencia, String asignatura, List<Alumno> listaAlumnos) {
         this.id_alum = id_alum;
         this.curso = curso;
         this.asistencia = asistencia;
@@ -47,11 +47,11 @@ public class Alumno extends Usuario {
         this.curso = curso;
     }
 
-    public String getAsistencia() {
+    public Boolean getAsistencia() {
         return asistencia;
     }
 
-    public void setAsistencia(String asistencia) {
+    public void setAsistencia(Boolean asistencia) {
         this.asistencia = asistencia;
     }
 
@@ -66,12 +66,11 @@ public class Alumno extends Usuario {
     @Override
     public String toString() {
 
-        return "Alumno{" +
-                "id_alum=" + id_alum +
-                ", curso='" + curso + '\'' +
-                ", asistencia=" + asistencia +
-                ", asignatura='" + asignatura + '\'' +
-                '}';
+        return "El alumno " + super.getNombre() +
+                " tiene un id de " + id_alum +
+                " esta en el curso de " + curso +
+                " la asistencia es " + asistencia +
+                " la asignatura es " + asignatura + " su correo es " + super.getEmail();
     }
 }
 
