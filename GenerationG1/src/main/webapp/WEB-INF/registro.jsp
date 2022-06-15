@@ -7,36 +7,40 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 
 <html>
+<meta charset="UTF-8">
 <head>
     <title>Registro</title>
 
 </head>
 <body>
   <div>
-      <!--PASAR INFORMACION DESDE LA VISTA A UNA URL(action)
-          SIN method, EL DEFAULT ES get-->
+      <%--@elvariable id="usuario" type=""--%>
+      <c:if test="${msgError!=null}">
+          <C:out> "${msgError}"</C:out>
 
-      <!--GET = PARAMETROS SE VAN A LA RUTA-->
-      <!--POST = PARAMETROS NO SE VEN(OCULTOS)-->
-      <!--name INTERACTUA CON EL BACKEND-->
-      <!--id INTERACTUA SOLO CON ESTE JSP, NO PUEDEN HABER id IGUALES-->
-      <form action= "/registro/usuario" method="post">
-          <label for="nombre">Nombre: </label>
-          <input type="text" id="nombre" name="nombre">
+
+      </c:if>
+      <form:form action="/registro/usuario" method ="post" modelAttribute="usuario">
+          <form:label  path = "nombre"> Nombre</form:label>
+          <form:input path="nombre" />
           <br>
-          <label for="apellido">Apellido: </label>
-          <input type="text" id="apellido" name="apellido">
+          <form:label  path = "apellido"> Apellido</form:label>
+          <form:input path="apellido" />
           <br>
-          <label for="edad">Edad: </label>
-          <input type="number" id="edad" name="edad">
+          <form:label  path = "edad"> Edad</form:label>
+          <form:input path="edad" />
           <br>
-          <!--SUBMIT ENVIA INFORMACION-->
-          <input type="submit" value="registrar">
-          <!--SOLO BOTON, NO RECARGA PAGINA-->
-          <input type="button" value="Enviar">
-      </form>
+          <form:label  path = "password"> Contraseña</form:label>
+          <form:input path="password" type = "password" />
+          <br>
+          <input type = "submit" value ="Registrar">
+
+
+      </form:form>
 
   </div>
 </body>
