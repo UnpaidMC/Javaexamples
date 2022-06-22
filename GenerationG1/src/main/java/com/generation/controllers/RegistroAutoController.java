@@ -77,7 +77,6 @@ public class RegistroAutoController {
                                   BindingResult resultado,
                                   Model model) {
 
-
         if (resultado.hasErrors()) {//Validar si resultado tiene errores
             model.addAttribute("msgError", "Uno de los datos esta erroneo, porfavor arreglar");
 
