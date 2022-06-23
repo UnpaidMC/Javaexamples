@@ -1,13 +1,10 @@
 package com.generation.models;
 
 
-import javax.persistence.Entity;//Persistir = mantener
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Table; //Hibernate = permite trabajar con objeto y la tabla
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Entity
 @Table(name="usuarios")
@@ -27,17 +24,26 @@ public class Usuario {
 
         @NotNull
         private String password;
+        @Column(updatable = false)
+        private Date updatedAt;
+        private Date createdAt;
 
-        //Constructores
+        //One-to-One
+        @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+        private Licencia licencia;
+
+    //Constructores
     public Usuario(){
         super();
 
     }
 
     public Usuario(String nombre, String apellido, Integer edad) {
+        super();
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
+
     }
     //Getter and Setter
 
@@ -81,4 +87,22 @@ public class Usuario {
     public void setEdad(Integer edad) {
         this.edad = edad;
     }
+
+    public Licencia getLicencia() {
+        return licencia;
+    }
+
+    public void setLicencia(Licencia licencia) {
+        this.licencia = licencia;
+    }
+
+    @PrePersist
+    protected void onCreate(){
+        this.createdAt = new Date();
+    }
+    @PreUpdate
+    protected void onUpdate(){
+        this.updatedAt = new Date();
+    }
+
 }

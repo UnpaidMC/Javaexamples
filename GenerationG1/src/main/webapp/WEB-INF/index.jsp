@@ -13,7 +13,7 @@
 
 <html>
 <head>
-    <title>Lo que se ve en la pestaña</title>
+    <title>HOLAAAAAAAAAAAAAAAA</title>
 </head>
 <body>
 <h1>Hola <c:out value="${nombres}"></c:out> <c:out value="${apellidos}"></c:out></h1>

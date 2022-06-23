@@ -50,20 +50,12 @@ public class RegistroController {
 
             return "registro.jsp";
 
-        }
+        }else{
 
         //@Valid valida resulatos junto con BindingResult
-        //sout para mostra datos
-
-        System.out.println(usuario.getNombre() + usuario.getApellido() + usuario.getEdad());
         //enviar el objeto al service
         usuarioService.saveUsuario(usuario);
-
-
-
         return "index.jsp";
-
-
-
+    }
     }
 }

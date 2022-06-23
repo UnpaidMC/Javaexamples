@@ -6,7 +6,8 @@ import com.generation.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.validation.Valid;
+
+import java.util.List;
 
 @Service
 public class UsuarioService {
@@ -22,7 +23,12 @@ public class UsuarioService {
         usuarioRepository.save(usuario);
     }
 
+    public List<Usuario> findAll(){
 
+        return usuarioRepository.findAll();
+
+
+    }
     /*Logica de negocio, o validaciones del sistema*/
     /*LLama al repository y a los metodos*/
 

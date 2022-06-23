@@ -3,6 +3,8 @@ package com.generation.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
+
 @Entity
 @Table(name="registroAutos")
 
@@ -26,7 +28,11 @@ public class Auto {
         @NotNull
         private String matricula;
 
-        //Constructores
+        @Column(updatable = false)
+        private Date createdAt;
+        private Date updatedAt;
+
+    //Constructores
 
 
     public Auto() {
@@ -102,4 +108,14 @@ public class Auto {
     public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
+
+    @PrePersist
+    protected void onCreate(){
+        this.createdAt = new Date();
+    }
+    @PreUpdate
+    protected void onUpdate(){
+        this.updatedAt = new Date();
+    }
+
 }

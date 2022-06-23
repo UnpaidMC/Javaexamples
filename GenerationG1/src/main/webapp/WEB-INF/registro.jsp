@@ -5,11 +5,6 @@
   Time: 15:27
   To change this template use File | Settings | File Templates.
 --%>
-
-
-
-
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -29,8 +24,7 @@
 
 
       </c:if>
-      <%--@elvariable id="dinosaurio" type=""--%>
-      <form:form action="/registro/usuario" method ="post" modelAttribute="dinosaurio">
+      <form:form action="/registro/usuario" method ="post" modelAttribute="usuario">
           <form:label  path = "nombre"> Nombre</form:label>
           <form:input path="nombre" />
           <br>
@@ -43,7 +37,7 @@
           <form:label  path = "password"> Contraseña</form:label>
           <form:input path="password" type = "password" />
           <br>
-          <input type = "button"  value ="Registrar">
+          <input type = "submit" value ="Registrar">
 
 
       </form:form>
