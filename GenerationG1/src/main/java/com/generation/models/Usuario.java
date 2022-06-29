@@ -5,6 +5,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="usuarios")
@@ -31,6 +32,16 @@ public class Usuario {
         //One-to-One
         @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
         private Licencia licencia;
+
+    //ManytoMany es igual que tener 2 OnetoMany
+    @ManyToMany (fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "roles_usuarios", //nombre de tabla relacional
+            joinColumns = @JoinColumn(name = "usuario_id"), //Desde la entidad/tabla actual //Mencionar nombre de columna
+            inverseJoinColumns = @JoinColumn(name = "rol_id") //La otra entidad/tabla con que se va a comunicar
+            // Mencionar nombre de columna de union
+            )
+    private List<Rol> roles;
 
     //Constructores
     public Usuario(){

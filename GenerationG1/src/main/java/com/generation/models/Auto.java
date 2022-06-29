@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="registroAutos")
@@ -28,6 +29,16 @@ public class Auto {
         @NotNull
         private String matricula;
 
+        //ManytoMany para AutosVentas
+
+    @ManyToMany (fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "autos_ventas", //nombre de tabla relacional
+            joinColumns = @JoinColumn(name = "auto_id"), //Desde la entidad/tabla actual //Mencionar nombre de columna
+            inverseJoinColumns = @JoinColumn(name = "compra_venta_id") //La otra entidad/tabla con que se va a comunicar
+            // Mencionar nombre de columna de union
+    )
+    private List<CompraVenta> compraVentas;
         @Column(updatable = false)
         private Date createdAt;
         private Date updatedAt;
@@ -40,6 +51,7 @@ public class Auto {
     }
 
     public Auto(Long id, String marca, String color, String modelo, String motor, Integer precioUSD, String matricula) {
+        super();
         this.id = id;
         this.marca = marca;
         this.color = color;
@@ -107,6 +119,14 @@ public class Auto {
 
     public void setMatricula(String matricula) {
         this.matricula = matricula;
+    }
+
+    public List<CompraVenta> getCompraVentas() {
+        return compraVentas;
+    }
+
+    public void setCompraVentas(List<CompraVenta> compraVentas) {
+        this.compraVentas = compraVentas;
     }
 
     @PrePersist
