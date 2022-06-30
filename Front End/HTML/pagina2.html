@@ -8,6 +8,39 @@
     <title>Pagina 2</title>
 
     <h1><a href="index.html">Vuelve a pagina principal</a></h1>
+    <br>
+
+    <!--Radio Button, boton de selección-->
+    <!--name debe ser iguales para que se agrupen-->
+    <h2>Seleccione una opcion</h2>
+    <input type="radio" id="html" name="opcion" value="opcion1"> HTML<br>
+    <input type="radio" id="CSS" name="opcion" value="opcion2"> CSS<br>
+    <input type="radio" id="JS" name="opcion" value="opcion3"> JavaScript<br>
+
+    <hr>
+
+    <!--El label se asocia con el id del input-->
+    <input type="checkbox" id="opcion1" name="opcion1" value="HTML">
+    <label for="opcion1">HTML</label><br>
+    <input type="checkbox" id="opcion2" name="opcion2" value="CSS">
+    <label for="opcion2">CSS</label><br>
+    <input type="checkbox" id="opcion3" name="opcion3" value="JS">
+    <label for="opcion3">JavaScript</label><br>
+
+    <hr>
+
+    <!--Selectores-->
+    <!--Selected selecciona una de las opciones por default-->
+
+    <select id="lenguajes" name="lenguajes">
+        <option value="0">Seleccione su lenguaje</option>
+        <option value="1">Java</option>
+        <option value="2">Python</option>
+        <option value="3">Ruby</option>
+    </select>
+
+    <!--Optgroup es similar a un selector pero agrupa las opciones en distintas categorias-->
+
 </head>
 
 <body>

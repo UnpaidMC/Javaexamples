@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+
+    <style>
+        /*3 formas basicas de asignar un estilo*/
+        /*por elemento HTML, todas las etiquetas se ven afectadas*/
+        
+        div {
+            background-color: blue;
+        }
+        
+        p {
+            background-color: red;
+        }
+        /*El porciento es el porcentaje del div*/
+        
+        img {
+            width: 50%
+        }
+        /*EM y REM son otras unidades de medida para imagenes y div*/
+        /*por clases, se ven afectadas solo las etiquetas que tienen el mismo nombre de clase*/
+        
+        .parrafos {
+            background-color: greenyellow;
+            color: chocolate;
+        }
+        /*Por ID, estilo solo para la etiqueta*/
+        
+        #importante {
+            color: hotpink;
+        }
+        
+        .generation1 {
+            color: orangered;
+        }
+        
+        #pg1 {
+            color: darkorchid;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <p>Parrafo 1</p>
+        <p class="parrafos">Parrafo 2</p>
+        <p class="parrafos">Parrafo 3</p>
+        <p id="importante">Parrafo 4</p>
+        <img src="Assets/IMG/perro.jpg" alt="foto">
+    </div>
+
+    <div>
+        <p>Parrafo 5</p>
+    </div>
+
+    <div>
+        <p id="pg1" class="generation1">Parrafo 6</p>
+    </div>
+</body>
+
+</html>
