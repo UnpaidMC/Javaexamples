@@ -6,10 +6,86 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS - 2</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        p {
+            width: 100px;
+            height: 100px;
+        }
+        
+        div {
+            text-align: center;
+            overflow: scroll;
+            width: 400px;
+            height: 400px;
+            background: url(Assets/IMG/perro.jpg) no-repeat center;
+            background-color: aliceblue;
+            background-size: 50%;
+            border: 2px solid;
+            border-color: red;
+            border-right-color: green;
+            border-radius: 10px;
+            /*Si se trabaja con background o border mejor poner el principal y despues los especificos*/
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        h1 {
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20pt;
+            line-height: 1.5;
+            font-weight: 200;
+        }
+        
+        .statico {
+            position: static;
+            /*posicion original*/
+            width: 500px;
+            height: 200px;
+        }
+        
+        .relativo {
+            position: relative;
+            width: 500px;
+            height: 200px;
+            left: 50px;
+            /*Se mueve relativamente entre left, right, top y bottom*/
+        }
+        
+        .fijo {
+            position: fixed;
+            width: 500px;
+            height: 200px;
+            right: 30px;
+            top: 0px;
+        }
+        /*posicion: static, relative, fixed, absolute*/
+    </style>
 </head>
 
 <body>
-
+    <div>
+        <h1>Elementos de estilo</h1>
+        <a href="#">Link de prueba</a>
+        <p>Parrafo 1</p>
+    </div>
+    <div class="statico">
+        <p>Prueba de posicionamiento estatico</p>
+    </div>
+    <div class="relativo">
+        <p>Prueba de posicionamiento relativo</p>
+    </div>
+    <div class="fijo">
+        <p>Prueba de posicionamiento fijo</p>
+    </div>
 </body>
 
 </html>
