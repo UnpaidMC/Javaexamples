@@ -18,11 +18,73 @@
         }
         
         #hijo {
-            width: 50%;
-            height: 50%;
+            width: 25%;
+            height: 25%;
             background-color: green;
+            display: inline-block;
+        }
+        
+        #hijo2 {
+            width: 25%;
+            height: 25%;
+            background-color: rgb(0, 109, 128);
+            display: inline-block;
+        }
+        
+        a {
+            display: block;
+            background-color: greenyellow;
+        }
+        
+        #default1 {
+            width: 50px;
+            height: 100px;
+            background-color: darkblue;
+            display: inline-block;
+        }
+        
+        #default2 {
+            width: 50px;
+            height: 200px;
+            background-color: rgb(60, 250, 2);
+            display: inline-block;
+        }
+        
+        #top1 {
+            width: 50px;
+            height: 100px;
+            background-color: darkblue;
+            display: inline-block;
+            vertical-align: top;
+        }
+        
+        #top2 {
+            width: 50px;
+            height: 200px;
+            background-color: rgb(60, 250, 2);
+            display: inline-block;
+            vertical-align: top;
+        }
+        
+        #middle1 {
+            width: 50px;
+            height: 100px;
+            background-color: darkblue;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        #middle2 {
+            width: 50px;
+            height: 200px;
+            background-color: rgb(60, 250, 2);
+            display: inline-block;
+            vertical-align: middle;
         }
         /*El margin provoca un desplazamiento como efecto optico*/
+        /*Elementos inline <a><img><input><label><select><textarea>*/
+        /*Elementos block <body><div><form><h1>-<h6><p><table><ul><ol><li>*/
+        /*NUNCA PONER ELEMENTOS DE BLOCK EN ELEMENTOS INLINE*/
     </style>
 </head>
 
@@ -30,7 +92,46 @@
     <div id="padre">
         <div id="hijo">
         </div>
+        <div id="hijo2">
+        </div>
     </div>
+    <!--Nunca poner blockes dentro de inline-->
+    <a href="#">
+        <h1></h1>
+    </a>
+
+
+    <!--Block-->
+    <a href="#">Grupo 1</a>
+    <a href="#">Grupo 2</a>
+    <a href="#">Grupo 3</a>
+    <a href="#">Grupo 4</a>
+    <a href="#">Grupo 5</a>
+    <a href="#">Grupo 6</a>
+
+    <p>Lorem Ipsum 1</p>
+    <p>Lorem Ipsum 2</p>
+
+
+    <!--Alineacion vertical por default-->
+    <div>
+        <div id="default1"></div>
+        <div id="default2"></div>
+    </div>
+    <br>
+    <!--Alineacion vertical por top-->
+    <div>
+        <div id="top1"></div>
+        <div id="top2"></div>
+    </div>
+    <br>
+    <!--Alineacion vertical por middle-->
+    <div>
+        <div id="middle1"></div>
+        <div id="middle2"></div>
+    </div>
+
+    <!--Investigar sobre media query    -->
 </body>
 
 </html>

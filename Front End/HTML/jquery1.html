@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery 1</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+
+            //funcion generica
+
+            $('p').click(function() {
+                $(this).text("Esto es un ejemplo de .this")
+                console.log($(this).text())
+
+            })
+
+
+            //elemento, clase, id -->asignar funcionalidad
+            //$('btnEnviar').evento();
+            //Get y Set
+            $('#btn1').click(function() {
+                alert("evento")
+            });
+
+            //Funciones de efectos
+
+            //hide()---> Oculta elementos
+
+            $('#btn2').click(function() {
+                $('#p2').hide();
+            });
+
+
+            $('#btn3').click(function() {
+                $('#p2').show();
+            });
+
+
+            $('#btn4').click(function() {
+                $('#p2').toggle();
+            });
+
+            //Slide down up y toggle
+
+            $('#btn5').click(function() {
+                $('#p3').slideDown();
+            });
+            $('#btn6').click(function() {
+                $('#p3').slideUp();
+            });
+            $('#btn7').click(function() {
+                $('#p3').slideToggle();
+            });
+
+            //Fade in out y toggle
+            $('#btn8').click(function() {
+                $('#p4').fadeIn();
+            });
+            $('#btn9').click(function() {
+                $('#p4').fadeOut();
+            });
+            $('#btn10').click(function() {
+                $('#p4').fadeToggle(4000);
+            });
+
+            //fin jquery    
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Getter y Setter</h1>
+    <p id="p1">Esto es un ejemplo</p>
+    <button id="btn1">get y set</button>
+    <br>
+    <hr>
+    <!--Hide-->
+    <h1>Hide - Show - Toggle</h1>
+    <p id="p2">Esto es un ejemplo oculto</p>
+    <button id="btn2">hide()</button>
+    <button id="btn3">show()</button>
+    <button id="btn4">toggle()</button>
+    <br>
+    <hr>
+    <!--Slide up y down-->
+    <h1>Slide up y slide down</h1>
+    <p id="p3">Esto es un ejemplo de slide</p>
+    <button id="btn5">Slide Down()</button>
+    <button id="btn6">Slide Up()</button>
+    <button id="btn7">Slide Toggle()</button>
+    <br>
+    <hr>
+
+    <h1>Fade in, out y toggle</h1>
+    <p id="p4">Esto es un ejemplo de fade</p>
+    <button id="btn8">Fade in()</button>
+    <button id="btn9">Fade out()</button>
+    <button id="btn10">Fade Toggle()</button>
+    <br>
+    <hr>
+
+</body>
+
+</html>
