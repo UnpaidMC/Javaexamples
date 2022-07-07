@@ -66,10 +66,69 @@
             $('#btn10').click(function() {
                 $('#p4').fadeToggle(4000);
             });
+            //Creacion o eliminacion de elementos HTML
+            //after()
+            $('#btn11').click(function() {
+                $('#p5').after('<h2> Titulo 2 </h2>');
+                $('#p5').after('<img src="" alt="prueba">');
+                //Tambien se puede agregar imaganes o cualquier elemento
+            });
+
+            $('#btn12').click(function() {
+                $('#p5').before('<h2> Titulo 2 </h2>');
+                $('#p5').after('<img src="" alt="prueba">');
+            });
+
+            //append
+            $('#btn13').click(function() {
+                $('#p5').append('<span> Esto es un span </span>');
+
+            });
+            //prepend
+            $('#btn14').click(function() {
+                $('#p5').prepend('<span> Esto es un span </span>');
+
+            });
+            //attr, agrega atributos a un elemento HTML
+            $('#btn15').click(function() {
+                $('#p6').attr('name', 'parrafo 6');
+                $('#p6').attr('style', 'color: red;font-size: 30px;background-color: blue');
+                $('#txt1').attr('value', 'generation 1');
+            });
+            //Crea contenido HTML pero borra todo lo de antes
+            $('#btn16').click(function() {
+                $('#p7').html('<span>Etiqueta span</span>');
+            });
+
+            $('#btn17').click(function() {
+                let valor = $('#txt2').val();
+                alert(valor)
+            });
+            $('#btn18').click(function() {
+                $('#div1').html('<h1 id="titulo1"> ESTE ES UN TITULO PRUEBA NO ME BORRES </h1> <p id="p9"> ESTE ES UN PARRAFO PRUEBA NO ME BORRES </p>')
+                $('#p9').css('background-color', 'lime')
+                $('#titulo1').css('background-color', 'blue')
+            });
+            $('#btn19').click(function() {
+                $('#div1').addClass('divClaseG')
+            });
+
+            $('#btn20').click(function() {
+                $('#div1').removeClass()
+
+            });
+
 
             //fin jquery    
         });
     </script>
+    <style>
+        .divClaseG {
+            width: 400px;
+            height: 200px;
+            background-color: peru;
+        }
+    </style>
 </head>
 
 <body>
@@ -103,6 +162,43 @@
     <br>
     <hr>
 
+    <!--Manipulacion-->
+
+    <h1>Esto es un elemento html</h1>
+    <p id="p5">Esto es un parrafo</p>
+    <button id="btn11">After()</button>
+    <button id="btn12">Before()</button>
+    <button id="btn13">Append()</button>
+    <button id="btn14">Prepend()</button>
+    <br>
+    <hr>
+
+    <h1>Esto es un elemento html</h1>
+    <p id="p6">Esto es un parrafo numero 6</p>
+    <input type="text" name="" id="txt1">
+    <button id="btn15">Attr()</button>
+    <br>
+    <hr>
+    <p id='p7'>Esto es un parrafo 7</p>
+    <button id="btn16">Html()</button>
+    <br>
+    <hr>
+    <!--Val, Capturar-->
+    <p id='p8'>Esto es un parrafo 8</p>
+    <input type="text" name="" id="txt2" value="Valor prueba">
+    <button id="btn17">Val()</button>
+    <br>
+    <hr>
+    <!--Manipulacion de estilos-->
+    <!--Agregar CSS directo-->
+    <div id="div1">
+
+    </div>
+    <button id="btn18">Css()</button>
+    <button id="btn19">AddClass()</button>
+    <button id="btn20">RemoveClass()</button>
+    <br>
+    <hr>
 </body>
 
 </html>
