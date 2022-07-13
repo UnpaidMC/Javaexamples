@@ -23,9 +23,16 @@ public class Usuario {
 
         private Integer edad;
 
-        @NotNull
+        private String email;
+
+    @NotNull
+    @Size(min=3, max=20)
         private String password;
-        @Column(updatable = false)
+        @Transient  //Transient no deja que se cree una columna en la base de datos
+        private String passwordConfirmacion;
+
+
+    @Column(updatable = false)
         private Date updatedAt;
         private Date createdAt;
 
@@ -49,11 +56,12 @@ public class Usuario {
 
     }
 
-    public Usuario(String nombre, String apellido, Integer edad) {
+    public Usuario(String nombre, String apellido, Integer edad, String password) {
         super();
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
+        this.password = password;
 
     }
     //Getter and Setter
@@ -107,6 +115,20 @@ public class Usuario {
         this.licencia = licencia;
     }
 
+    public String getPasswordConfirmacion() {
+        return passwordConfirmacion;
+    }
+
+    public void setPasswordConfirmacion(String passwordConfirmacion) {
+        this.passwordConfirmacion = passwordConfirmacion;
+    }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
     @PrePersist
     protected void onCreate(){
         this.createdAt = new Date();

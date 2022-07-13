@@ -12,5 +12,9 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
     /*La interface solo definen los metodos*/
     /*Querys y usar metodos que se conectan a la base de datos*/
 
+    /*Validar la existencia del email*/
+
+    Usuario findByEmail(String email);
+
 
 }

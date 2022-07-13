@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller()
@@ -52,10 +53,45 @@ public class RegistroController {
 
         }else{
 
+            //enviar el objeto al service
+            boolean usuarioCreado= usuarioService.saveUsuario(usuario);
         //@Valid valida resulatos junto con BindingResult
         //enviar el objeto al service
-        usuarioService.saveUsuario(usuario);
-        return "index.jsp";
+            if(usuarioCreado) {
+                model.addAttribute("msgError", "El email ya esta registrado");
+                return "registro.jsp";
+            }else {
+                return "login.jsp";
+            }
     }
+    }
+
+    @RequestMapping("/usuario/ingreso")
+    public String ingresoUsuario(@RequestParam(value="email") String email,
+                                 @RequestParam(value="password") String password,
+                                 Model model, HttpSession session) {
+        /*validaciones a realizar*/
+        //validar que los parametros no son null o vacios
+        if(email==null || password ==null ||  email.isEmpty() || password.isEmpty()) {
+            model.addAttribute("msgError", "Todos los campos son obligatorios");
+            return "login.jsp";
+        }
+        //si es true, indica que hay un error el bd
+        boolean usuarioValidado = usuarioService.validarUsuario(email,password);
+
+        if(usuarioValidado){
+            model.addAttribute("msgError", "Error en el ingreso al sistema");
+            return "login.jsp";
+        }else {
+            //no hay error, puede ingresar al sistema
+            session.setAttribute("email", email);
+
+            return "redirect:/home";
+        }
+    }
+
+    @RequestMapping("/usuario/login")
+    public String login() {
+        return "login.jsp";
     }
 }
