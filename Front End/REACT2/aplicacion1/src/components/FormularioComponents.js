@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState,  useEffect} from "react";
 
 const initialValues=[
     {
@@ -11,10 +11,28 @@ const initialValues=[
     }
 ]
 
-const FormularioComponent = ({usuarioAdd}) => {
+const FormularioComponent = ({usuarioAdd, usuarioEditado, usuarioEdit, setUsuarioEditado}) => {
 
     const[values, setValues] =useState(initialValues);
     const{key, nombre, apellido, edad, password}=values;
+
+    useEffect(
+        () => { 
+            if (usuarioEditado !== null){
+                
+                setValues(usuarioEditado)}else{
+                    setValues({
+                        
+                            key:'',
+                            nombre:'',
+                            apellido:'',
+                            edad:'',
+                            password:''       
+                            })
+                };
+        }, [usuarioEditado]);
+
+        {/*useEffect(accion que debe hacer, [estado del cual debe estar pendiente])*/}
 
     const handleInputChange=(e)=>{
         const changedFormValue={
@@ -26,8 +44,14 @@ const FormularioComponent = ({usuarioAdd}) => {
 
     const handleSubmit = (e) => {
     e.preventDefault();
+    if(usuarioEditado !== null){
+    usuarioEdit(values)
+    }else{
     usuarioAdd(values);
     }
+    }
+
+    {/*onSubmit da la funcionalidad del boton*/}
 
 return (<form onSubmit={handleSubmit}>
     <div className="form-group">
@@ -93,7 +117,10 @@ return (<form onSubmit={handleSubmit}>
     ></input>
     <br/>
     </div>
-    <button type="submit" className="btn btn-primary">Crear usuario</button>
+    <button type="submit" className="btn btn-primary">{usuarioEditado ? "Editar usuario": "Crear usuario"}</button>
+    {usuarioEditado ?
+    (<button className="btn btn-warning" onClick={setUsuarioEditado(null)}>Cancelar</button>) : ''}
+
 </form>);
 }
 
